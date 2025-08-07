@@ -10,7 +10,9 @@
 			"type": "extensionHost",
 			"request": "launch",
 			"args": [
-				"--extensionDevelopmentPath=${workspaceFolder}"
+				"--extensionDevelopmentPath=${workspaceFolder}",
+				// 禁用其他扩展
+				"--disable-extensions"
 			],
 			"outFiles": [
 				"${workspaceFolder}/dist/**/*.js"
@@ -29,6 +31,15 @@
 				"${workspaceFolder}/out/test/**/*.js"
 			],
 			"preLaunchTask": "npm: test-watch"
-		}
+		},
+		{
+      "type": "node",
+      "request": "launch",
+      "name": "Package Extension",
+      "runtimeExecutable": "vsce",
+      "args": [
+        "package",
+      ]
+    },
 	]
 }
